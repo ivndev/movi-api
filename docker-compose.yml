@@ -1,0 +1,15 @@
+version: "3.5"
+services:
+  api:
+    image: $MOVI_IMAGE
+    container_name: $MOVI_CONTAINER
+    restart: on-failure
+    env_file:
+      - .env
+    ports:
+      - "${MOVI_PORT}:${MOVI_PORT}"
+    volumes:
+      - "${MOVI_VOLUME}"
+networks:
+  default:
+    name: $NETWORK
